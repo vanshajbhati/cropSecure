@@ -1,0 +1,47 @@
+name: cropsecure
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.8.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get_it: ^7.2.0
+  provider: ^5.0.0
+  shared_preferences: ^2.0.6
+  get: ^4.3.0
+  dio: ^4.0.0
+  dropdown_search: ^2.0.0
+  dotted_line: ^3.1.0
+  fluttertoast: ^8.0.8
+  file_picker: ^4.3.3
+  url_launcher: ^6.0.0
+  image_picker_gallery_camera: ^0.2.2
+
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/image/
+
+  fonts:
+     - family: Proxima Nova
+       fonts:
+         - asset: fonts/proximanovabold.ttf
+         - asset: fonts/proximanovaregular.ttf
+         - asset: fonts/proximanovasemibold.ttf
+         - asset: fonts/proximanovalight.ttf
+         - asset: fonts/proximanovaextrabld.ttf
