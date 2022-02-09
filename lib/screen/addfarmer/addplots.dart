@@ -649,6 +649,8 @@ class _AddPlotsState extends State<AddPlots> {
                             showSnackBar("Select village");
                           }else if(pincodeController.text.isEmpty){
                             showSnackBar("Enter pincode");
+                          }else if(pincodeController.text.length>6){
+                            showSnackBar("Enter valid pincode");
                           }else if(newFile == null){
                             showSnackBar("Upload farmer plot");
                           }else if(newFilePan == null){
