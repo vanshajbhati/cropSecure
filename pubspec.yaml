@@ -21,7 +21,9 @@ dependencies:
   file_picker: ^4.3.3
   url_launcher: ^6.0.0
   image_picker_gallery_camera: ^0.2.2
-
+  camera:
+  path_provider:
+  path:
 
   cupertino_icons: ^1.0.2
 

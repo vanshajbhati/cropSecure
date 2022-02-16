@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:cropsecure/screen/addfarmer/addfarmer.dart';
 import 'package:cropsecure/screen/addfarmer/addplots.dart';
 import 'package:cropsecure/screen/dashboard.dart';
@@ -5,8 +6,14 @@ import 'package:cropsecure/utill/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class AddPlotSuccessfull extends StatefulWidget {
+class AddPlotSuccessfull extends StatefulWidget  {
+
+
+
+
   const AddPlotSuccessfull({Key key}) : super(key: key);
+
+
 
   @override
   _AddPlotSuccessfullState createState() => _AddPlotSuccessfullState();
@@ -178,4 +185,5 @@ class _AddPlotSuccessfullState extends State<AddPlotSuccessfull> {
       ),
     );
   }
+
 }

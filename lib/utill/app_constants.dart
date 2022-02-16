@@ -1,5 +1,7 @@
 class AppConstants {
 
+
+
   static const String appName = '';
 
   static const String baseUrl = 'http://fs.frantic.in/RestApi/';
@@ -60,6 +62,14 @@ class AppConstants {
   static const String subCategoryName = 'subCategoryName';
   static const String token = 'token';
   static const String aadharNumber = 'aadharNumber';
+
+
+
+  // new constant of camera image paths
+
+  static String phani_image_path = "";
+  static String farmer_plot_image_path = "";
+
 
 
   /*static List<LanguageModel> languages = [

@@ -1,7 +1,12 @@
+
 import 'dart:io';
 
+import 'package:camera/camera.dart';
+import 'package:cropsecure/main.dart';
 import 'package:cropsecure/provider/authprovider.dart';
 import 'package:cropsecure/screen/addfarmer/addPlotSuccessfull.dart';
+import 'package:cropsecure/screen/addfarmer/openCamera.dart';
+import 'package:cropsecure/utill/app_constants.dart';
 import 'package:cropsecure/utill/color_resources.dart';
 import 'package:cropsecure/utill/styles.dart';
 import 'package:dropdown_search/dropdown_search.dart';
@@ -14,7 +19,13 @@ import 'package:provider/provider.dart';
 class AddPlots extends StatefulWidget {
 
   final String id;
-  AddPlots({this.id});
+
+
+
+  AddPlots({this.id,
+
+  });
+
 
   @override
   State<AddPlots> createState() => _AddPlotsState();
@@ -33,31 +44,56 @@ class _AddPlotsState extends State<AddPlots> {
   File newFile;
   PlatformFile file;
   File newFilePan,newFileRashan,newFileFarmer;
+  bool imageGot = true;
+
+
 
   void onFileOpenAdhaar() async {
-    FilePickerResult result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg','png'],);
-    if(result != null) {
-      file = result.files.first;
-      filename = File(file.path);
-      setState(() {
-        newFile = filename;
-      });
-    }
+
+
+    filename = File(AppConstants.farmer_plot_image_path);
+    setState(() {
+      newFile = filename;
+    });
+
+    print(AppConstants.phani_image_path+" <===   path of the file farmer" );
+
   }
 
+
+
+
+
+
   void onFileOpenPan() async {
-    FilePickerResult result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['jpg','png'],);
-    if(result != null) {
-      file = result.files.first;
-      filename = File(file.path);
+
+
+      filename = File(AppConstants.phani_image_path);
       setState(() {
         newFilePan = filename;
       });
+
+      print(AppConstants.phani_image_path+" <===   path of the file Pan");
+
     }
+
+
+
+  @override
+  void initState() {
+    super.initState();
+    // To display the current output from the Camera,
+    // create a CameraController.
+
+   imageGot =false;
+
+
+  print("++++==============+++++++>>>>>>>>>       OPEN PAN RUNED");
+
+
+
+
+
   }
 
   void showSnackBar(String message) {
@@ -69,6 +105,11 @@ class _AddPlotsState extends State<AddPlots> {
 
   @override
   Widget build(BuildContext context) {
+    if(imageGot==true){
+    onFileOpenPan();
+    onFileOpenAdhaar();
+
+    }
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -508,7 +549,11 @@ class _AddPlotsState extends State<AddPlots> {
 
 
                                 InkWell(
-                                  onTap: ()=> onFileOpenAdhaar(),
+                                  onTap: (){
+                                    imageGot =true;
+                                    Navigator.push(context, MaterialPageRoute(builder: (Context)=>TakePictureScreen(photoOf: "farmer_plot_image_path")));
+
+                                  },
                                   child: Container(
                                       margin: const EdgeInsets.only(right: 4,bottom: 3),
                                       decoration: BoxDecoration(
@@ -573,7 +618,7 @@ class _AddPlotsState extends State<AddPlots> {
                                 ),
 
                                 InkWell(
-                                  onTap: ()=> getImage(ImgSource.Both),
+                                  onTap: ()=> Navigator.push(context, MaterialPageRoute(builder: (Context)=>TakePictureScreen(photoOf: "phani_image_path"))) ,
                                   child: Container(
                                       margin: const EdgeInsets.only(right: 4,bottom: 3),
                                       decoration: BoxDecoration(
@@ -678,37 +723,14 @@ class _AddPlotsState extends State<AddPlots> {
         ),
       ),
     );
+
+
   }
 
-  var _image;
 
-  Future getImage(ImgSource source) async {
-    var image = await ImagePickerGC.pickImage(
-        enableCloseButton: true,
-        closeIcon: Icon(
-          Icons.close,
-          color: Colors.red,
-          size: 12,
-        ),
-        context: context,
-        source: source,
-        barrierDismissible: true,
-        cameraIcon: Icon(
-          Icons.camera_alt,
-          color: Colors.red,
-        ), //cameraIcon and galleryIcon can change. If no icon provided default icon will be present
-        cameraText: Text(
-          "From Camera",
-          style: TextStyle(color: Colors.red),
-        ),
-        galleryText: Text(
-          "From Gallery",
-          style: TextStyle(color: Colors.blue),
-        ));
-    setState(() {
-      _image = image;
-    });
-  }
+
+
+
 
 
 }

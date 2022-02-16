@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:cropsecure/provider/authprovider.dart';
 import 'package:cropsecure/screen/splash/splash_screen.dart';
 import 'package:cropsecure/theme/light_theme.dart';
@@ -10,6 +11,7 @@ import 'di_container.dart' as di;
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+
   GestureBinding.instance.resamplingEnabled = true; // Set this flag.
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
   await di.init();
@@ -30,6 +32,8 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: light,
       home: SplashScreen(),
+
     );
   }
+
 }

@@ -1281,7 +1281,7 @@ class _AddFarmerState extends State<AddFarmer> {
                           showSnackBar("Select grama");
                         }else if(villageSelect==""){
                           showSnackBar("Select village");
-                        }else if(mobileController.text.length!=10 || mobileController.text.length!=12 ){
+                        }else if(mobileController.text.length!=10 & mobileController.text.length!=12 ){
                           showSnackBar("Enter a valid number");
                         }else if(pinController.text.length>6){
                           showSnackBar("Enter a valid pincode");

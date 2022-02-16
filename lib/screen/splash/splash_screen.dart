@@ -8,6 +8,8 @@ import 'package:get/get.dart';
 import '../dashboard.dart';
 
 class SplashScreen extends StatefulWidget {
+
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
